@@ -398,3 +398,6 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+.idea/.idea.Strathweb.Samples/.idea
+.DS_Store
+src/IdentityServer/keys
