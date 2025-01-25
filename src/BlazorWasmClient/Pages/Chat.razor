@@ -133,7 +133,7 @@ else
     private async Task NegotiateSecret(User user)
     {
         var encapsulator = new MLKemEncapsulator(MLKemParameters.ml_kem_768);
-        encapsulator.Init(new ParametersWithRandom(MLKemPublicKeyParameters.FromEncoding(MLKemParameters.ml_kem_768, user.PublicKey), _random));
+        encapsulator.Init(MLKemPublicKeyParameters.FromEncoding(MLKemParameters.ml_kem_768, user.PublicKey));
         
         var cipherText = new byte[encapsulator.EncapsulationLength];
         var sharedSecret = new byte[encapsulator.SecretLength];

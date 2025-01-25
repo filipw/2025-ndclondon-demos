@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System;
+using System.Text;
 using Org.BouncyCastle.Crypto.Generators;
 using Org.BouncyCastle.Crypto.Kems;
 using Org.BouncyCastle.Crypto.Parameters;
@@ -105,7 +106,7 @@ static void RunMlKem()
 
     // Bob encapsulates a new shared secret using Alice's public key
     var encapsulator = new MLKemEncapsulator(MLKemParameters.ml_kem_768);
-    encapsulator.Init(new ParametersWithRandom(alicePublic, random));
+    encapsulator.Init(MLKemPublicKeyParameters.FromEncoding(MLKemParameters.ml_kem_768, pubEncoded));
 
     var cipherText = new byte[encapsulator.EncapsulationLength];
     var bobSecret = new byte[encapsulator.SecretLength];
