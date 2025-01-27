@@ -21,6 +21,6 @@ builder.Services.AddAuthorization(options =>
 var app = builder.Build();
 app.UseHttpsRedirection();
 app.UseAuthorization();
-app.MapGet("/demo", [Authorize("api")] (HttpContext context) => context.User.Claims.Select(c => new { c.Type, c.Value }));
+app.MapGet("/demo", [Authorize("api")] () => "hello, world");
 
 app.Run();
