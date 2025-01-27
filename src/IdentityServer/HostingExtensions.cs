@@ -13,9 +13,6 @@ internal static class HostingExtensions
 {
     public static WebApplication ConfigureServices(this WebApplicationBuilder builder)
     {
-        //var rawJwk = File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory(), "ml-dsa-44.json"));
-        //var jwk = JsonSerializer.Deserialize<JsonWebKey>(rawJwk);
-
         builder.Services.AddIdentityServer(opt =>
             {
                 opt.EmitStaticAudienceClaim = true;
